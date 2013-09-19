@@ -1,0 +1,54 @@
+<title>Morse Game</title>
+<script src="js/Resampler.js"></script>
+<script src="js/XAudioServer.js"></script>
+<script src="js/morse.js"></script>
+
+
+<form name="mform" class="sform">
+	<fieldset>
+		<legend>Morse Code</legend>
+		<ol>
+			<li>
+				<label for="input">Input:</label>
+				<textarea id="input" name="input" cols="40" rows="3"></textarea>
+			</li>
+			<li>
+				<label for="output" class="button">
+					Output:
+				</label>
+				<textarea id="output" name="output" cols="40" rows="3" readonly=""></textarea>
+			</li>
+		</ol>
+		<p>
+			<input type="button" name="translate" value="Translate" onclick="javascript:translateM()">
+			<input id="play" type="button" value="Play" onclick="javascript:playM()">
+			<input id="stop" type="button" value="Stop" onclick="javascript:stopM()">
+			<span class="error" id="transError"></span>
+		</p>
+	</fieldset> 
+	<fieldset>
+		<legend class="button">Advanced Controls</legend>
+		<ol id="soundControl">
+			<li>
+				<label class="aligned" for="volume" title="Probably best to use your computer's volume control...">Volume:</label>
+				<input size="5" type="text" id="volume" value="0.5">
+			</li>
+			<li>
+				<label class="aligned" for="pitch" title="A high number makes a high pitch.  700 is a good value.">Pitch / Hz:</label>
+				<input size="5" type="text" id="pitch" value="700">
+			</li>
+			<li>
+				<label class="aligned" for="wpm" title="The speed in words per minute, taking 'PARIS' as the standard word.">Speed / wpm:</label>
+				<input size="5" type="text" id="wpm" name="wpm" value="30" onblur="javascript:tieSpeeds()">
+			</li>
+			<li>
+				<label class="aligned" for="fwpm" title="The Farnsworth speed slows down the space between letters and words, making it easier to learn Morse.  It should be a lower value than the speed.">Farnsworth Speed / wpm:</label>
+				<input size="5" type="text" id="fwpm" name="fwpm" value="30" onblur="javascript:tieSpeeds()">
+			</li>
+			<li>
+				<label class="aligned" for="useprosigns" title="Prosigns are a sort of Morse code shorthand, written e.g. &lt;CT&gt;">Use prosigns:</label>
+				<input type="checkbox" id="useprosigns" name="useprosigns">
+			</li>
+		</ol>
+	</fieldset>
+</form>
